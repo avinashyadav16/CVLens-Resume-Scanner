@@ -11,7 +11,8 @@ load_dotenv()
 openai.api_key = os.getenv("NVIM_API_KEY")
 
 if not openai.api_key:
-    raise ValueError("OpenAI API key is not set. Please check your environment variables.")
+    raise ValueError(
+        "OpenAI API key is not set. Please check your environment variables.")
 
 
 # Function to estimate reading time
@@ -198,9 +199,12 @@ if uploaded_files:
                 comparison_analysis = generate_gemini_content(
                     "", comparison_prompt)
 
-                st.markdown(f"### Comparison of {
-                            resume_options[0]} and {resume_options[1]}")
-                st.markdown(f"**Comparison Analysis:** {comparison_analysis}")
+                st.markdown(
+                    f"### Comparison of {resume_options[0]} and {resume_options[1]}"
+                )
+                st.markdown(
+                    f"**Comparison Analysis:** {comparison_analysis}"
+                )
 
                 # Store previously asked questions and answers for the compared resumes
                 combined_resumes_text = " ".join(
